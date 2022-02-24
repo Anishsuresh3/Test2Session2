@@ -1,1 +1,81 @@
+ gcc -g p2final.c -lm
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0xa83: file p2final.c, line 31.
+(gdb) r
+Starting program: /home/runner/Test2Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p2final.c:31
+31  {
+(gdb) n
+34    input_triangle(&x1,&y1,&x2,&y2,&x3,&y3);
+(gdb) s
+input_triangle (x1=0x7ffd7223b34c, y1=0x7ffd7223b358, x2=0x7ffd7223b350, 
+    y2=0x7ffd7223b35c, x3=0x7ffd7223b354, y3=0x7ffd7223b360) at p2final.c:5
+5     printf("Enter the coordinates of the triangle:\n");
+(gdb) n
+Enter the coordinates of the triangle:
+6     scanf("%f%f%f%f%f%f",x1,y1,x2,y2,x3,y3);
+(gdb) n
+1 1 5 9 2 2
+7   }
+(gdb) n
+main () at p2final.c:35
+35    istriangle=is_triangle(x1,y1,x2,y2,x3,y3);
+(gdb) s
+is_triangle (x1=1, y1=1, x2=5, y2=9, x3=2, y3=2) at p2final.c:10
+10    float dis=0.0,dis1=0.0,dis2=0.0,s,a;
+(gdb) n
+11    dis=sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)));
+(gdb) n
+12    dis1=sqrt(((x3-x2)*(x3-x2))+((y3-y2)*(y3-y2)));
+(gdb) n
+13    dis2=sqrt(((x3-x1)*(x3-x1))+((y3-y1)*(y3-y1)));
+(gdb) n
+14    s=(dis+dis1+dis2)/2.0;
+(gdb) n
+15    a=sqrt(s*(s-dis)*(s-dis1)*(s-dis2));
+(gdb) n
+16    if(a)
+(gdb) n
+17      return 1;
+(gdb) n
+19  }
+(gdb) n
+main () at p2final.c:36
+36    output(x1,y1,x2,y2,x3,y3,istriangle);
+(gdb) s
+output (x1=1, y1=1, x2=5, y2=9, x3=2, y3=2, istriangle=1) at p2final.c:22
+22    if(istriangle)
+(gdb) n
+24      printf("The given coordinates : (%f,%f),(%f,%f),(%f,%f) form a triangle\n",x1,y1,x2,y2,x3,y3);
+(gdb) n
+The given coordinates : (1.000000,1.000000),(5.000000,9.000000),(2.000000,2.000000) form a triangle
+29  }
+(gdb) n
+main () at p2final.c:37
+37    return 0;
+(gdb) n
+38  }
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 780] will be killed.
+
+Quit anyway? (y or n) y
