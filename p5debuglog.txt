@@ -1,1 +1,265 @@
+ gcc -g p5final.c -lm
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x9b9: file p5final.c, line 38.
+(gdb) r
+Starting program: /home/runner/Test2Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p5final.c:38
+38  {
+(gdb) n
+39      int n=input_array_size();
+(gdb) s
+input_array_size () at p5final.c:4
+4   {
+(gdb) n
+6       printf("Enter the array size:\n");
+(gdb) n
+Enter the array size:
+7       scanf("%d",&n);
+(gdb) n
+10
+8       return n;
+(gdb) n
+9   }
+(gdb) n
+main () at p5final.c:40
+40      int a[n];
+(gdb) n
+41      init_array(n,a);
+(gdb) s
+init_array (n=10, a=0x7ffda4b96fa0) at p5final.c:13
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$1 = 2
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$2 = 3
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$3 = 4
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$4 = 5
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$5 = 6
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$6 = 7
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) p i
+$7 = 8
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$8 = 9
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+14          a[i-1]=i;
+(gdb) p i
+$9 = 10
+(gdb) n
+13      for(i=1;i<=n;i++)
+(gdb) n
+15  }
+(gdb) n
+main () at p5final.c:42
+42      erotosthenes_sieve(n,a);
+(gdb) s
+erotosthenes_sieve (n=10, a=0x7ffda4b96fa0) at p5final.c:18
+18    a[0]=0;
+(gdb) n
+19    for(int i=1;i<sqrt(n);i++)
+(gdb) n
+21        if(a[i]!=0){
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+24                a[k-1]=0;
+(gdb) p k
+$10 = 4
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+24                a[k-1]=0;
+(gdb) p k
+$11 = 6
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+24                a[k-1]=0;
+(gdb) p k
+$12 = 8
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+24                a[k-1]=0;
+(gdb) p k
+$13 = 10
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+19    for(int i=1;i<sqrt(n);i++)
+(gdb) n
+21        if(a[i]!=0){
+(gdb) p i
+$14 = 2
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+24                a[k-1]=0;
+(gdb) p k
+$15 = 9
+(gdb) n
+22          for(int k=a[i]*a[i];k<=n;k+=a[i])
+(gdb) n
+19    for(int i=1;i<sqrt(n);i++)
+(gdb) n
+21        if(a[i]!=0){
+(gdb) p i
+$16 = 3
+(gdb) n
+19    for(int i=1;i<sqrt(n);i++)
+(gdb) n
+28  }
+(gdb) n
+main () at p5final.c:43
+43      out_put(n,a);
+(gdb) s
+out_put (n=10, a=0x7ffda4b96fa0) at p5final.c:31
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) n
+31      for(int i=0;i<n;i++)
+(gdb) p i
+$17 = 0
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$18 = 1
+(gdb) n
+34            printf("%d\n",a[i]);
+(gdb) n
+2
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) n
+34            printf("%d\n",a[i]);
+(gdb) p i
+$19 = 2
+(gdb) n
+3
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$20 = 3
+(gdb) n
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$21 = 4
+(gdb) n
+34            printf("%d\n",a[i]);
+(gdb) n
+5
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$22 = 5
+(gdb) n
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$23 = 6
+(gdb) n
+34            printf("%d\n",a[i]);
+(gdb) n
+7
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$24 = 7
+(gdb) n
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) p i
+$25 = 8
+(gdb) n
+31      for(int i=0;i<n;i++)
+(gdb) n
+33          if(a[i]!=0)
+(gdb) n
+31      for(int i=0;i<n;i++)
+(gdb) p i
+$26 = 9
+(gdb) n
+36  }
+(gdb) n
+main () at p5final.c:44
+44      return 0;
+(gdb) n
+45  }
+(gdb) n
+__libc_start_main (main=0x55707f8009a8 <main>, argc=1, argv=0x7ffda4b97108, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffda4b970f8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+2
+3
+5
+7
+[Inferior 1 (process 1047) exited normally]
+(gdb) q
