@@ -1,1 +1,188 @@
+ gcc -g p6final.c 
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8b9: file p6final.c, line 35.
+(gdb) r
+Starting program: /home/runner/Test2Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p6final.c:35
+35  {
+(gdb) n
+37    input_string(string,substring);
+(gdb) s
+input_string (string=0x7ffc93fb6520 "\001", 
+    substring=0x7ffc93fb6540 "0\t\300mYU") at p6final.c:4
+4     printf("Enter the string and substring:\n");
+(gdb) n
+Enter the string and substring:
+5     scanf("%s%s",string,substring);
+(gdb) n
+helloworldhello
+world
+6   }
+(gdb) n
+main () at p6final.c:38
+38    int i=str_index(string,substring);
+(gdb) p string
+$1 = "helloworldhello\000@;", <incomplete sequence \327>
+(gdb) p substring
+$2 = "world\000\000\000`\006\300mYU\000\000@", <incomplete sequence \373\223>
+(gdb) s
+str_index (string=0x7ffc93fb6520 "helloworldhello", 
+    substring=0x7ffc93fb6540 "world") at p6final.c:10
+10    for(i=0;string[i]!='\0';i++)
+(gdb) n
+12        j=0;
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+10    for(i=0;string[i]!='\0';i++)
+(gdb) n
+12        j=0;
+(gdb) p i
+$3 = 1
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+10    for(i=0;string[i]!='\0';i++)
+(gdb) n
+12        j=0;
+(gdb) p i
+$4 = 2
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+10    for(i=0;string[i]!='\0';i++)
+(gdb) n
+12        j=0;
+(gdb) p i
+$5 = 3
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+10    for(i=0;string[i]!='\0';i++)
+(gdb) n
+12        j=0;
+(gdb) p i
+$6 = 4
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+10    for(i=0;string[i]!='\0';i++)
+(gdb) n
+12        j=0;
+(gdb) p i
+$7 = 5
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+15          j++;
+(gdb) n
+16          i++;
+(gdb) n
+17          if(substring[j]=='\0')
+(gdb) n
+19          if(string[i]!=substring[j]){
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+15          j++;
+(gdb) p i
+$8 = 6
+(gdb) p j
+$9 = 1
+(gdb) n
+16          i++;
+(gdb) n
+17          if(substring[j]=='\0')
+(gdb) p i
+$10 = 7
+(gdb) p j
+$11 = 2
+(gdb) n
+19          if(string[i]!=substring[j]){
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+15          j++;
+(gdb) n
+16          i++;
+(gdb) n
+17          if(substring[j]=='\0')
+(gdb) p i
+$12 = 8
+(gdb) p j
+$13 = 3
+(gdb) n
+19          if(string[i]!=substring[j]){
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+15          j++;
+(gdb) n
+16          i++;
+(gdb) n
+17          if(substring[j]=='\0')
+(gdb) p i
+$14 = 9
+(gdb) p j
+$15 = 4
+(gdb) n
+19          if(string[i]!=substring[j]){
+(gdb) n
+13        while(string[i]==substring[j])
+(gdb) n
+15          j++;
+(gdb) n
+16          i++;
+(gdb) n
+17          if(substring[j]=='\0')
+(gdb) p i
+$16 = 10
+(gdb) p j
+$17 = 5
+(gdb) n
+18            return i-j;
+(gdb) n
+26  }
+(gdb) n
+main () at p6final.c:39
+39    output(string,substring,i);
+(gdb) p i
+$18 = 5
+(gdb) s
+output (string=0x7ffc93fb6520 "helloworldhello", 
+    substring=0x7ffc93fb6540 "world", index=5) at p6final.c:29
+29    if(index>=0)
+(gdb) n
+30      printf("The index of %s in %s is %d\n",substring,string,index);
+(gdb) n
+The index of world in helloworldhello is 5
+33  }
+(gdb) n
+main () at p6final.c:40
+40    return 0;
+(gdb) n
+41  }
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 1776] will be killed.
+
+Quit anyway? (y or n) y
